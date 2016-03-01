@@ -1,0 +1,29 @@
+body
+{
+    overflow: hidden;
+
+    background-color: #2963c1;
+}
+
+body,
+html
+{
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+.container
+{
+    position: absolute;
+
+    max-width: 100%;
+    height: 600px;
+}
+
+svg
+{
+    visibility: hidden;
+
+    max-width: 100%;
+}

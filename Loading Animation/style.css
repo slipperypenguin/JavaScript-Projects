@@ -1,0 +1,116 @@
+@keyframes draai{
+  0%{
+    transform:rotate(0deg);
+  }
+  100%{
+    transform:rotate(360deg);
+  }
+}
+
+@keyframes draaiAndersom{
+  0%{
+    transform:rotate(360deg);
+  }
+  100%{
+    transform:rotate(0deg);
+  }
+}
+
+*{
+  margin: 0;padding: 0;
+}
+header{
+  position:fixed;
+  height:100%;
+  width:100%;
+  background-color:#A3D9E4;
+}
+
+div{
+  background-color: #550F08;
+  border-radius:50%;
+  position:absolute;
+}
+
+
+div:before,div:after {
+  content:"";
+  display:block;
+
+}
+
+div:before{
+  mix-blend-mode: multiply;
+  width:66%;height: 66%;
+  background-color: #6FB537;
+  border-radius:50%;
+  margin:3px;
+
+  animation:draaiAndersom 3s infinite linear;
+  transform-origin:top left;
+}
+div:after{
+
+  position: absolute;
+  width:30%;height: 30%;
+  background-color: #BEDF8C;
+  border-radius:50%;
+  margin:6px;
+  top:0;
+
+  animation:draai 3s 3s infinite ease-in-out;
+  transform-origin:-100% -100%;
+}
+
+#one{
+  animation:draai 6s infinite linear;
+}
+
+#two{
+  animation:draai 6s -2s infinite linear;
+}
+
+#three{
+  animation:draai 6s -4s infinite linear;
+}
+
+.blob0{
+  width:40px;
+  height: 40px;
+  left:50%; top:50%; margin-top:-20px; margin-left:-20px;
+}
+.blob1{
+  width:32px;
+  height: 32px;
+  left:40px;
+  top:4px;
+  animation:draai 3s infinite linear;
+  z-index:1;
+}
+
+.blob2{
+  width:24px;
+  height:24px;
+  left:32px;
+  top:4px;
+  animation:draai 1.5s infinite linear;
+  z-index:2;
+}
+
+.blob3{
+  width:18px;
+  height:18px;
+  left:24px;
+  top:3px;
+  animation:draai .75s infinite linear;
+  z-index:3;
+}
+
+.blob4{
+  width:12px;
+  height: 12px;
+  left:18px;
+  top:3px;
+  animation:draai .375s infinite linear;
+  z-index:4;
+}

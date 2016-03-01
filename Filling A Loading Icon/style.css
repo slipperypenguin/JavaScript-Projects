@@ -1,0 +1,38 @@
+body
+{
+    font-family: Slabo, serif;
+    font-size: 16px;
+
+    margin: 10% auto;
+
+    background: #f4f4f4;
+}
+
+svg
+{
+    display: block;
+
+    width: 600px;
+    margin: 20px auto;
+}
+
+h1
+{
+    font-family: 'Slabo 27px', sans-serif;
+    font-size: 4em;
+    line-height: 1.2em;
+
+    max-width: 7em;
+    margin: auto;
+
+    text-align: center;
+}
+
+#bulb
+{
+    width: 40%;
+    max-width: 200px;
+
+    -webkit-transform: rotateZ(180deg);
+            transform: rotateZ(180deg);
+}

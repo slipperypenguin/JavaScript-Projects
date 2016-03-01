@@ -1,0 +1,593 @@
+@charset 'UTF-8';
+html
+{
+    height: 100%;
+    min-height: 500px;
+}
+
+body
+{
+    font-family: 'Roboto', 'Arial', sans-serif;
+
+    height: 100%;
+    margin: 0;
+
+    background: -webkit-linear-gradient(45deg, #000026, #4e7797);
+    background:         linear-gradient(45deg, #000026, #4e7797);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+*
+{
+    box-sizing: border-box;
+}
+
+.clearfix::after
+{
+    display: table;
+    clear: both;
+
+    content: '';
+}
+
+.wrapper
+{
+    position: absolute;
+
+    width: 100%;
+    height: 100%;
+}
+
+.container
+{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+
+    overflow: hidden;
+
+    width: calc(100% - 20px);
+    max-width: 400px;
+    height: 500px;
+
+    -webkit-transform: translateX(-50%) translateY(-50%);
+            transform: translateX(-50%) translateY(-50%);
+
+    background: -webkit-linear-gradient(135deg, #6e91e9, #70acee);
+    background:         linear-gradient(-45deg, #6e91e9, #70acee);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, .2);
+}
+.container .alarm_cards
+{
+    position: absolute;
+
+    display: inline-block;
+
+    width: 100%;
+    height: 100%;
+    padding: 70px 20px 20px;
+}
+.container .alarm_cards.hidden
+{
+    -webkit-animation: hide_alarm_cards 1s forwards;
+            animation: hide_alarm_cards 1s forwards;
+}
+.container .alarm_cards.shown
+{
+    -webkit-animation: show_alarm_cards 1.5s forwards;
+            animation: show_alarm_cards 1.5s forwards;
+}
+.container .alarm_cards .alarm_card
+{
+    position: relative;
+
+    margin: 0 auto;
+    padding: 20px 10px 20px 20px;
+
+    cursor: pointer;
+
+    border-radius: 0 0 8px 8px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, .2);
+}
+.container .alarm_cards .alarm_card .time
+{
+    font-size: 50px;
+    font-weight: 300;
+    line-height: 62px;
+
+    position: relative;
+    position: relative;
+
+    display: inline-block;
+    float: left;
+
+    margin-top: 5px;
+
+    color: #fff;
+}
+.container .alarm_cards .alarm_card .switcher
+{
+    position: relative;
+
+    display: inline-block;
+    float: right;
+
+    box-sizing: border-box;
+    width: 90px;
+    height: 60px;
+
+    cursor: pointer;
+
+    border: 2px solid #fff;
+    border-radius: 40px;
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, .2);
+}
+.container .alarm_cards .alarm_card .switcher.on
+{
+    background-color: rgba(255, 255, 255, .3);
+}
+.container .alarm_cards .alarm_card .switcher.on::after
+{
+    -webkit-transform: translateX(28px);
+            transform: translateX(28px);
+}
+.container .alarm_cards .alarm_card .switcher::after
+{
+    position: absolute;
+    top: -2px;
+
+    width: 60px;
+    height: 60px;
+
+    content: ' ';
+    -webkit-transition: -webkit-transform .2s ease-in-out;
+            transition: -webkit-transform .2s ease-in-out;
+            transition:         transform .2s ease-in-out;
+            transition:         transform .2s ease-in-out, -webkit-transform .2s ease-in-out;
+    -webkit-transform: translateX(-2px);
+            transform: translateX(-2px);
+
+    border-radius: 50%;
+    background-color: #fff;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, .3);
+}
+.container .alarm_cards .alarm_card .frequency
+{
+    float: left;
+
+    width: 100%;
+
+    color: #fff;
+}
+.container .alarm_cards .alarm_card .frequency::before
+{
+    font-family: FontAwesome;
+    font-size: 14px;
+
+    margin-right: 6px;
+
+    content: '';
+    vertical-align: top;
+
+    opacity: .6;
+    color: #fff;
+}
+.container .alarm_cards .alarm_card.first
+{
+    z-index: 3;
+
+    width: 100%;
+
+    background: -webkit-linear-gradient(left, #5c6cc1, #84a3df);
+    background:         linear-gradient(to right, #5c6cc1, #84a3df);
+}
+.container .alarm_cards .alarm_card.second
+{
+    z-index: 2;
+
+    width: 95%;
+
+    background: -webkit-linear-gradient(left, #f1c29d, #f1de94);
+    background:         linear-gradient(to right, #f1c29d, #f1de94);
+}
+.container .alarm_cards .alarm_card.third
+{
+    z-index: 1;
+
+    width: 90%;
+
+    background: -webkit-linear-gradient(left, #8cd2d9, #afe3d1);
+    background:         linear-gradient(to right, #8cd2d9, #afe3d1);
+}
+
+.alarm_change_card_wrapper
+{
+    position: absolute;
+
+    width: 400px;
+    height: 500px;
+    padding: 70px 20px 20px;
+
+    -webkit-transform: translateX(400px);
+            transform: translateX(400px);
+}
+.alarm_change_card_wrapper.shown
+{
+    -webkit-animation: show_alarm_change_card_wrapper 1s .5s forwards;
+            animation: show_alarm_change_card_wrapper 1s .5s forwards;
+}
+.alarm_change_card_wrapper.shown .alarm_change_card
+{
+    -webkit-animation: show_alarm_change_card .5s 1s forwards;
+            animation: show_alarm_change_card .5s 1s forwards;
+}
+.alarm_change_card_wrapper.hidden
+{
+    -webkit-animation: hide_alarm_change_card_wrapper 1s forwards;
+            animation: hide_alarm_change_card_wrapper 1s forwards;
+}
+.alarm_change_card_wrapper.hidden .alarm_change_card
+{
+    -webkit-animation: hide_alarm_change_card .5s forwards;
+            animation: hide_alarm_change_card .5s forwards;
+}
+.alarm_change_card_wrapper .alarm_change_card
+{
+    width: 100%;
+    height: 100%;
+
+    -webkit-transform: scale(.8);
+            transform: scale(.8);
+
+    opacity: .6;
+    border-radius: 8px;
+}
+.alarm_change_card_wrapper .alarm_change_card .title
+{
+    font-size: 24px;
+
+    position: relative;
+
+    width: 100%;
+    padding: 10px;
+
+    color: rgba(0, 0, 0, .4);
+    border-radius: 4px;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, .2);
+}
+.alarm_change_card_wrapper .alarm_change_card .time_block .title
+{
+    background: -webkit-linear-gradient(left, #fed1a7, #feeca8);
+    background:         linear-gradient(to right, #fed1a7, #feeca8);
+}
+.alarm_change_card_wrapper .alarm_change_card .time_block .time
+{
+    padding: 5px;
+
+    text-align: center;
+
+    background-color: #6b6ec5;
+}
+.alarm_change_card_wrapper .alarm_change_card .time_block .time .hours,
+.alarm_change_card_wrapper .alarm_change_card .time_block .time .minutes
+{
+    font-size: 42px;
+
+    display: inline-block;
+
+    color: #fff;
+}
+.alarm_change_card_wrapper .alarm_change_card .time_block .time .hours .value::after
+{
+    margin: 0 5px;
+
+    content: ':';
+}
+.alarm_change_card_wrapper .alarm_change_card .time_block .time .hours .up,
+.alarm_change_card_wrapper .alarm_change_card .time_block .time .hours .down
+{
+    margin-left: -18px;
+}
+.alarm_change_card_wrapper .alarm_change_card .time_block .time .up,
+.alarm_change_card_wrapper .alarm_change_card .time_block .time .down
+{
+    line-height: 20px;
+
+    cursor: pointer;
+    -webkit-transition: all .2s ease-in-out;
+            transition: all .2s ease-in-out;
+}
+.alarm_change_card_wrapper .alarm_change_card .time_block .time .up:hover,
+.alarm_change_card_wrapper .alarm_change_card .time_block .time .down:hover
+{
+    opacity: .6;
+}
+.alarm_change_card_wrapper .alarm_change_card .frequency_block
+{
+    position: relative;
+
+    margin: 0 auto 20px;
+
+    border-radius: 0 0 8px 8px;
+}
+.alarm_change_card_wrapper .alarm_change_card .frequency_block .title
+{
+    background: -webkit-linear-gradient(left, #93dccc, #9cd2f9);
+    background:         linear-gradient(to right, #93dccc, #9cd2f9);
+}
+.alarm_change_card_wrapper .alarm_change_card .frequency_block .days
+{
+    padding: 20px;
+
+    text-align: center;
+
+    color: #fff;
+    background-color: #6b6ec5;
+}
+.alarm_change_card_wrapper .alarm_change_card .frequency_block .days .day
+{
+    font-size: 20px;
+    line-height: 40px;
+
+    display: inline-block;
+
+    box-sizing: border-box;
+    width: calc((100% - 5px*6) / 7);
+    height: calc((100% - 5px*6) / 7);
+
+    cursor: pointer;
+
+    border-radius: 50%;
+}
+.alarm_change_card_wrapper .alarm_change_card .frequency_block .days .day.active
+{
+    background-color: rgba(0, 0, 0, .2);
+}
+.alarm_change_card_wrapper .alarm_change_card .frequency_block .days .day:not(:last-child)
+{
+    margin-right: 5px;
+}
+.alarm_change_card_wrapper .alarm_change_card .frequency_block .days .day.free
+{
+    color: #abefc0;
+}
+
+.saving_button
+{
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+
+    padding: 20px;
+    padding: 20px 60px;
+
+    cursor: pointer;
+    -webkit-transition: all .3s linear;
+            transition: all .3s linear;
+    -webkit-transform: translateX(-50%);
+            transform: translateX(-50%);
+
+    color: #fff;
+    border-radius: 30px;
+    background-color: #4c6ea5;
+}
+.saving_button:hover
+{
+    color: #4c6ea5;
+    background-color: #fff;
+}
+
+/************ Animations ********** */
+@-webkit-keyframes hide_alarm_cards
+{
+    50%
+    {
+        -webkit-transform: scale(.8);
+                transform: scale(.8);
+
+        opacity: .6;
+    }
+    100%
+    {
+        -webkit-transform: scale(.8) translateX(-120%);
+                transform: scale(.8) translateX(-120%);
+
+        opacity: .6;
+    }
+}
+@keyframes hide_alarm_cards
+{
+    50%
+    {
+        -webkit-transform: scale(.8);
+                transform: scale(.8);
+
+        opacity: .6;
+    }
+    100%
+    {
+        -webkit-transform: scale(.8) translateX(-120%);
+                transform: scale(.8) translateX(-120%);
+
+        opacity: .6;
+    }
+}
+@-webkit-keyframes show_alarm_cards
+{
+    0%
+    {
+        -webkit-transform: scale(.8) translateX(-120%);
+                transform: scale(.8) translateX(-120%);
+
+        opacity: .6;
+    }
+    33%
+    {
+        -webkit-transform: scale(.8) translateX(-120%);
+                transform: scale(.8) translateX(-120%);
+
+        opacity: .6;
+    }
+    66%
+    {
+        -webkit-transform: scale(.8) translateX(0);
+                transform: scale(.8) translateX(0);
+
+        opacity: .6;
+    }
+    100%
+    {
+        -webkit-transform: scale(1) translateX(0);
+                transform: scale(1) translateX(0);
+
+        opacity: 1;
+    }
+}
+@keyframes show_alarm_cards
+{
+    0%
+    {
+        -webkit-transform: scale(.8) translateX(-120%);
+                transform: scale(.8) translateX(-120%);
+
+        opacity: .6;
+    }
+    33%
+    {
+        -webkit-transform: scale(.8) translateX(-120%);
+                transform: scale(.8) translateX(-120%);
+
+        opacity: .6;
+    }
+    66%
+    {
+        -webkit-transform: scale(.8) translateX(0);
+                transform: scale(.8) translateX(0);
+
+        opacity: .6;
+    }
+    100%
+    {
+        -webkit-transform: scale(1) translateX(0);
+                transform: scale(1) translateX(0);
+
+        opacity: 1;
+    }
+}
+@-webkit-keyframes show_alarm_change_card_wrapper
+{
+    50%
+    {
+        -webkit-transform: translateX(0);
+                transform: translateX(0);
+    }
+    100%
+    {
+        -webkit-transform: translateX(0);
+                transform: translateX(0);
+    }
+}
+@keyframes show_alarm_change_card_wrapper
+{
+    50%
+    {
+        -webkit-transform: translateX(0);
+                transform: translateX(0);
+    }
+    100%
+    {
+        -webkit-transform: translateX(0);
+                transform: translateX(0);
+    }
+}
+@-webkit-keyframes hide_alarm_change_card_wrapper
+{
+    0%
+    {
+        -webkit-transform: translateX(0);
+                transform: translateX(0);
+    }
+    50%
+    {
+        -webkit-transform: translateX(0);
+                transform: translateX(0);
+    }
+    100%
+    {
+        -webkit-transform: translateX(400px);
+                transform: translateX(400px);
+    }
+}
+@keyframes hide_alarm_change_card_wrapper
+{
+    0%
+    {
+        -webkit-transform: translateX(0);
+                transform: translateX(0);
+    }
+    50%
+    {
+        -webkit-transform: translateX(0);
+                transform: translateX(0);
+    }
+    100%
+    {
+        -webkit-transform: translateX(400px);
+                transform: translateX(400px);
+    }
+}
+@-webkit-keyframes show_alarm_change_card
+{
+    100%
+    {
+        -webkit-transform: scale(1);
+                transform: scale(1);
+
+        opacity: 1;
+    }
+}
+@keyframes show_alarm_change_card
+{
+    100%
+    {
+        -webkit-transform: scale(1);
+                transform: scale(1);
+
+        opacity: 1;
+    }
+}
+@-webkit-keyframes hide_alarm_change_card
+{
+    0%
+    {
+        -webkit-transform: scale(1);
+                transform: scale(1);
+
+        opacity: 1;
+    }
+    100%
+    {
+        -webkit-transform: scale(.8);
+                transform: scale(.8);
+
+        opacity: .6;
+    }
+}
+@keyframes hide_alarm_change_card
+{
+    0%
+    {
+        -webkit-transform: scale(1);
+                transform: scale(1);
+
+        opacity: 1;
+    }
+    100%
+    {
+        -webkit-transform: scale(.8);
+                transform: scale(.8);
+
+        opacity: .6;
+    }
+}

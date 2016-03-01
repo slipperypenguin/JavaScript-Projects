@@ -1,0 +1,295 @@
+@import url(https://fonts.googleapis.com/css?family=Inconsolata);
+
+:root
+{
+    /* color palette :: https://coolors.co/app/d63c6b-5cc8ff-efefef-292f36-d6d6d6 */
+    font-size: 16px;
+}
+
+*,
+*:before,
+*:after
+{
+    box-sizing: border-box;
+}
+
+html,
+body
+{
+    font-family: 'Inconsolata', 'Courier New', monospace;
+
+    position: relative;
+
+    width: 100%;
+    height: 100%;
+
+    background-image: -webkit-linear-gradient(top left, #bfdede 0%, #000026 100%);
+    background-image:         linear-gradient(to bottom right, #bfdede 0%, #000026 100%);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+body
+{
+    padding-top: 20px;
+
+    -webkit-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
+}
+
+button
+{
+    font-size: 20px;
+    font-size: 1.25rem;
+    line-height: 1;
+
+    padding: 16px;
+    padding: 1rem;
+
+    -webkit-transition: all 300ms cubic-bezier(1, 1, 1, 1);
+            transition: all 300ms cubic-bezier(1, 1, 1, 1);
+
+    color: #5cc8ff;
+    border: 0;
+    outline: none;
+    background-color: #292f36;
+}
+
+button:hover
+{
+    color: #00a3f5;
+}
+
+button.block
+{
+    width: 100%;
+}
+
+button.transparent
+{
+    background-color: transparent;
+}
+
+button.no-padding
+{
+    padding: 0;
+}
+
+.react-calculator
+{
+    position: relative;
+
+    width: 320px;
+    margin: 0 auto;
+
+    box-shadow: 0 19px 38px rgba(19, 19, 19, .24),
+    0 15px 12px rgba(19, 19, 19, .12);
+}
+
+body::-webkit-scrollbar,
+.editable-field::-webkit-scrollbar,
+.memory-bank::-webkit-scrollbar
+{
+    width: 8px;
+    width: .5rem;
+}
+
+body::-webkit-scrollbar:horizontal,
+.editable-field::-webkit-scrollbar:horizontal,
+.memory-bank::-webkit-scrollbar:horizontal
+{
+    height: 8px;
+    height: .5rem;
+}
+
+body::-webkit-scrollbar-track,
+body::-webkit-scrollbar:horizontal,
+.editable-field::-webkit-scrollbar-track,
+.editable-field::-webkit-scrollbar:horizontal,
+.memory-bank::-webkit-scrollbar-track,
+.memory-bank::-webkit-scrollbar:horizontal
+{
+    background-color: #131313;
+}
+
+body::-webkit-scrollbar-thumb,
+body::-webkit-scrollbar:horizontal,
+.editable-field::-webkit-scrollbar-thumb,
+.editable-field::-webkit-scrollbar:horizontal,
+.memory-bank::-webkit-scrollbar-thumb,
+.memory-bank::-webkit-scrollbar:horizontal
+{
+    background-color: #000026;
+}
+
+s
+  body:hover::-webkit-scrollbar-thumb,
+s
+  body:hover::-webkit-scrollbar:horizontal,
+s
+  .editable-field:hover::-webkit-scrollbar-thumb,
+s
+  .editable-field:hover::-webkit-scrollbar:horizontal,
+s
+  .memory-bank:hover::-webkit-scrollbar-thumb,
+s
+  .memory-bank:hover::-webkit-scrollbar:horizontal
+{
+    background-color: #000026;
+}
+
+.editable-field
+{
+    font-size: 32px;
+    font-size: 2rem;
+    line-height: 2;
+
+    position: relative;
+    z-index: 10;
+
+    overflow-x: scroll;
+    overflow-y: hidden;
+
+    width: 320px;
+    height: 80px;
+    padding: 8px;
+    padding: .5rem;
+
+    text-align: right;
+    white-space: nowrap;
+
+    color: #d63c6b;
+    outline: none;
+    background-color: #131313;
+    background-color: rgba(19, 19, 19, .64);
+    box-shadow: 0 4px 2px -2px rgba(19, 19, 19, .64);
+
+    direction: rtl;
+}
+
+.memory-bank
+{
+    position: absolute;
+    z-index: 10;
+    top: 80px;
+    left: 0;
+
+    overflow: hidden;
+
+    width: 100%;
+    height: 0;
+    padding: 0;
+
+    -webkit-transition: height 150ms cubic-bezier(1, 1, 1, 1),
+    overflow 1ms cubic-bezier(1, 1, 1, 1) 200ms,
+    padding 1ms cubic-bezier(1, 1, 1, 1) 200ms;
+            transition: height 150ms cubic-bezier(1, 1, 1, 1),
+    overflow 1ms cubic-bezier(1, 1, 1, 1) 200ms,
+    padding 1ms cubic-bezier(1, 1, 1, 1) 200ms;
+
+    color: #00a3f5;
+    background-color: #131313;
+    background-color: rgba(19, 19, 19, .64);
+}
+
+.memory-bank .toggle-close
+{
+    position: absolute;
+    top: 5px;
+    right: 5px;
+
+    padding: 2px 5px;
+}
+
+.memory-bank .toggle-close .title
+{
+    display: inline-block;
+
+    -webkit-transform: rotate(45deg);
+            transform: rotate(45deg);
+}
+
+.memory-bank.visible
+{
+    overflow-y: auto;
+
+    height: calc(100% - 80px);
+    padding: 10px;
+
+    -webkit-transition: height 200ms cubic-bezier(1, 1, 1, 1),
+    padding 1ms cubic-bezier(1, 1, 1, 1);
+            transition: height 200ms cubic-bezier(1, 1, 1, 1),
+    padding 1ms cubic-bezier(1, 1, 1, 1);
+}
+
+.button-set--functions,
+.button-set--equations
+{
+    background-color: #292f36;
+}
+
+.button-set--functions button,
+.button-set--equations button
+{
+    font-variant: small-caps;
+
+    display: inline-block;
+
+    width: 80px;
+    height: 80px;
+
+    vertical-align: top;
+    text-transform: uppercase;
+
+    color: #d63c6b;
+
+    -webkit-font-feature-settings: 'c2sc', 'c2sc', 'c2sc';
+       -moz-font-feature-settings: 'c2sc', 'c2sc', 'c2sc';
+            font-feature-settings: 'c2sc', 'c2sc', 'c2sc';
+}
+
+.button-set--functions button:hover,
+.button-set--equations button:hover
+{
+    color: #c41c4f;
+}
+
+.button-set--numbers
+{
+    float: left;
+
+    width: 240px;
+
+    background-color: #292f36;
+}
+
+.button-set--numbers button
+{
+    position: relative;
+
+    display: block;
+    float: left;
+
+    width: 80px;
+    height: 80px;
+
+    -webkit-transition: box-shadow 300ms cubic-bezier(1, 1, 1, 1);
+            transition: box-shadow 300ms cubic-bezier(1, 1, 1, 1);
+
+    background-color: #292f36;
+}
+
+.button-set--numbers button:last-child
+{
+    width: 100%;
+}
+
+.button-set--functions
+{
+    float: left;
+    clear: left;
+
+    width: 240px;
+}

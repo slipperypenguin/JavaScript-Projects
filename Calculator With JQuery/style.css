@@ -1,0 +1,148 @@
+*
+{
+    font-family: 'Droid Sans', sans-serif;
+
+    box-sizing: border-box;
+}
+
+html
+{
+    height: 100%;
+}
+
+body
+{
+    margin: 0;
+
+    background: #fd746c; /* fallback for old browsers */
+    background: -webkit-linear-gradient(#6FB537, #6FB537);
+    background: -moz-linear-gradient(#6FB537, #6FB537);
+    background: -o-linear-gradient(#6FB537, #6FB537);
+    background: linear-gradient(#6FB537, #6FB537); /* Chrome 10-25, Safari 5.1-6 */ /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+#calculator
+{
+    width: 330px;
+    height: 380px;
+    margin: 30px auto;
+    padding: 20px;
+
+    border: px solid #888;
+    border-radius: 15px;
+    background-color: white;
+}
+
+.top span.clear
+{
+    font-size: 1.4em;
+    line-height: 45px;
+
+    float: left;
+
+    width: 45px;
+    height: 45px;
+    margin-left: 8px;
+
+    cursor: pointer;
+    transition: all .3s ease;
+    text-align: center;
+    text-align: center;
+
+    border: 1px solid #888;
+    border-radius: 50%;
+}
+
+.top span.clear:active
+{
+    font-size: 1.4em;
+    line-height: 45px;
+
+    float: left;
+
+    width: 45px;
+    height: 45px;
+    margin-left: 8px;
+
+    cursor: pointer;
+    text-align: center;
+    text-align: center;
+
+    color: #fff;
+    border: 1px solid #888;
+    border-radius: 50%;
+    background-color: #ddd;
+}
+
+.top .screen
+{
+    font-size: 18px;
+    line-height: 45px;
+
+    float: right;
+    overflow: hidden;
+
+    width: 220px;
+    height: 45px;
+    margin-right: 5px;
+    margin-bottom: 10px;
+    padding: 0 15px 0 10px;
+
+    text-align: right;
+
+    border-radius: 3px;
+    background: rgba(0, 0, 0, .1);
+}
+
+.keys span
+{
+    font-size: 2em;
+    line-height: 56px;
+
+    float: left;
+
+    width: 60px;
+    height: 60px;
+    margin: 6px;
+
+    cursor: pointer;
+    transition: all .3s ease;
+    text-align: center;
+    text-align: center;
+
+    border: 1px solid #888;
+    border-radius: 50%;
+}
+
+.keys span:active
+{
+    font-size: 2em;
+    line-height: 56px;
+
+    float: left;
+
+    width: 60px;
+    height: 60px;
+    margin: 6px;
+
+    cursor: pointer;
+    text-align: center;
+    text-align: center;
+
+    color: #fff;
+    border: 1px solid #888;
+    border-radius: 50%;
+    background-color: #888;
+}
+
+.unselectable
+{
+    -webkit-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
+
+         -o-user-select: none;
+}
